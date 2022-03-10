@@ -23,4 +23,17 @@ class App < Sinatra::Base
     @result = params[:num1].to_i * params[:num2].to_i
     "#{@result}"
   end
+
+  get "/greeting/:fname/:lname" do
+      @firstname = params[:fname]
+      @lastname = params[:lname]
+      "Your first name is #{@firstname} and your last name is #{@lastname}"
+  end
+
+  get "/location/:state/:zipcode/:city" do
+    @state = params[:state]
+    @zipcode = params[:zipcode].to_i
+    @city = params[:city]
+      "Your State is: #{@state}" + "\nyour Zipcode is: #{@zipcode}\n" + " and your City is: #{@city}"
+  end
 end
